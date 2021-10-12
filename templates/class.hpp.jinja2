@@ -1,0 +1,23 @@
+#ifndef {{ className | upper }}_HPP
+#define {{ className | upper }}_HPP
+
+#include <string>
+#include <iostream>
+#include <unistd.h>
+
+class {{ className }}
+{
+	private:
+
+	public:
+		{{ className }}();
+		{{ className }}(const {{ className }} & x);
+		virtual ~{{ className }}();
+
+		{{ className }}& operator=(const {{ className }} & x);
+
+};
+
+std::ostream &operator<<(std::ostream &os, {{ className }} const &other);
+
+#endif
