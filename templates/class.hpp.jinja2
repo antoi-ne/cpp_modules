@@ -11,13 +11,7 @@ class {{ className }}
 
 	public:
 		{{ className }}();
-		{{ className }}(const {{ className }} & x);
-		virtual ~{{ className }}();
-
-		{{ className }}& operator=(const {{ className }} & x);
-
+		~{{ className }}();
 };
-
-std::ostream &operator<<(std::ostream &os, {{ className }} const &other);
 
 #endif

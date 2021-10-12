@@ -7,23 +7,3 @@
 {{ className }}::~{{ className }}()
 {
 }
-
-{{ className }}::{{ className }}(const {{ className }} &other)
-{
-	*this = other;
-}
-
-{{ className }}& {{ className }}::operator=(const {{ className }} & other) 
-{
-	if (this != &other)
-	{
-		this->a = other.a;
-	}
-	return (*this);
-}
-
-std::ostream &operator<<(std::ostream &os, {{ className }} const &other)
-{
-	os << "" << std::endl;
-	return (os);
-}
