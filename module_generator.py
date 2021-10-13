@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from os import close, makedirs, path
+from os import makedirs, path
 from jinja2 import FileSystemLoader, Environment
 
 module = ("%02d" % int(input('Module number: ')))
