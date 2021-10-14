@@ -40,19 +40,20 @@ void Account::displayAccountsInfos()
 
 void Account::_displayTimestamp()
 {
-	// std::time_t now = std::time(NULL);
-	// std::tm* lnow = std::localtime(&now);
-	// std::cout << "["
-	// 	<< lnow->tm_year + 1900
-	// 	<< std::setfill('0') << std::setw(2) << lnow->tm_mon + 1
-	// 	<< std::setfill('0') << std::setw(2) << lnow->tm_mday
-	// 	<< "_"
-	// 	<< std::setfill('0') << std::setw(2) << lnow->tm_hour
-	// 	<< std::setfill('0') << std::setw(2) << lnow->tm_min
-	// 	<< std::setfill('0') << std::setw(2) << lnow->tm_sec
-	// 	<< "] ";
+	std::time_t now = std::time(NULL);
+	std::tm* lnow = std::localtime(&now);
+	std::cout << "["
+		<< lnow->tm_year + 1900
+		<< std::setfill('0') << std::setw(2) << lnow->tm_mon + 1
+		<< std::setfill('0') << std::setw(2) << lnow->tm_mday
+		<< "_"
+		<< std::setfill('0') << std::setw(2) << lnow->tm_hour
+		<< std::setfill('0') << std::setw(2) << lnow->tm_min
+		<< std::setfill('0') << std::setw(2) << lnow->tm_sec
+		<< "] ";
 
-	std::cout << "[19920104_091532] ";
+	// uncomment next line (and comment statements above) to diff the log file
+	// std::cout << "[19920104_091532] ";
 }
 
 Account::Account(int initial_deposit)
