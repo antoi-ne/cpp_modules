@@ -7,7 +7,7 @@ module = ("%02d" % int(input('Module number: ')))
 
 exos = int(input('Number of exos: '))
 
-file_loader = FileSystemLoader('templates')
+file_loader = FileSystemLoader(path.join(path.dirname(path.realpath(__file__)), 'templates'))
 
 env = Environment(loader=file_loader)
 

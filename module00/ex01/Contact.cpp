@@ -43,3 +43,12 @@ void Contact::print_summary(int index)
 		std::cout << std::setw(10) << this->nickname << "|";
 	std::cout << std::endl;
 }
+
+void Contact::print_info()
+{
+	std::cout << "First Name: " << this->first_name << std::endl;
+	std::cout << "Last name: " << this->last_name << std::endl;
+	std::cout << "Nickname: " << this->nickname << std::endl;
+	std::cout << "Phone number: " << this->phone_number << std::endl;
+	std::cout << "Darkest secret: " << this->darkest_secret << std::endl;
+}

@@ -7,7 +7,7 @@ className = input('Class name: ')
 
 directory = input('Destination directory: ')
 
-file_loader = FileSystemLoader('templates')
+file_loader = FileSystemLoader(path.join(path.dirname(path.realpath(__file__)), 'templates'))
 
 env = Environment(loader=file_loader)
 
