@@ -1,6 +1,6 @@
 NAME		= ex02
 
-SRCS		= main.cpp
+SRCS		= Account.cpp tests.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 

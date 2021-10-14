@@ -1,3 +1,5 @@
 *.[ao]
 megaphone
 ex??
+!ex??/
+*.log

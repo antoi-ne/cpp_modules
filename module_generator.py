@@ -35,4 +35,3 @@ for i in range(0, exos):
 	mainOutput = mainTemplate.render()
 	mainFile = open(path.join(exoPath, 'main.cpp'), "w+")
 	mainFile.write(mainOutput)
-
