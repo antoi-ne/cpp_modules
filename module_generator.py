@@ -17,6 +17,10 @@ gitignoreTemplate = env.get_template('.gitignore.jinja2')
 
 makedirs('module' + module, exist_ok=True)
 
+gitignoreOutput = gitignoreTemplate.render()
+gitignoreFile = open(path.join('module' + module, '.gitignore'), "w+")
+gitignoreFile.write(gitignoreOutput)
+
 for i in range(0, exos):
 	exo = ("%02d" % i)
 
@@ -32,6 +36,3 @@ for i in range(0, exos):
 	mainFile = open(path.join(exoPath, 'main.cpp'), "w+")
 	mainFile.write(mainOutput)
 
-	gitignoreOutput = gitignoreTemplate.render(exoNbr=exo)
-	gitignoreFile = open(path.join(exoPath, '.gitignore'), "w+")
-	gitignoreFile.write(gitignoreOutput)
