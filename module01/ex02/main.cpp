@@ -11,9 +11,9 @@ int main(void)
 	(void)stringPTR;
 	(void)stringREF;
 
-	std::cout << "str content: " << str << std::endl << "str address: " << (void *)&str << std::endl;
-	std::cout << "stringPTR content: " << *stringPTR << std::endl << "stringPTR address: " << (void *)stringPTR << std::endl;
-	std::cout << "stringREF content: " << stringREF << std::endl << "stringREF address: " << (void *)&stringREF << std::endl;
+	std::cout << "string address: " << &str << std::endl;
+	std::cout << "stringPTR address: " << stringPTR << std::endl << "stringREF address: " << &stringREF << std::endl;
+	std::cout << "stringPTR content: " << *stringPTR << std::endl << "stringREF content: " << stringREF << std::endl;
 
 	return (0);
 }

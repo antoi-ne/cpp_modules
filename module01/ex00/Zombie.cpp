@@ -1,6 +1,6 @@
 #include "Zombie.hpp"
 
-Zombie::Zombie(): _name("default")
+Zombie::Zombie()
 {
 }
 
