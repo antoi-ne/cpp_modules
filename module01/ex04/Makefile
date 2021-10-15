@@ -1,4 +1,4 @@
-NAME		= ex04
+NAME		= replace
 
 SRCS		= main.cpp
 
