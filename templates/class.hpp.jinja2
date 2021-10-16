@@ -1,17 +1,22 @@
 #ifndef {{ className | upper }}_HPP
 #define {{ className | upper }}_HPP
 
-#include <string>
 #include <iostream>
-#include <unistd.h>
+#include <string>
 
 class {{ className }}
 {
-	private:
 
 	public:
-		{{ className }}();
-		~{{ className }}();
+
+		{{ className }}(void);
+		{{ className }}({{ className }} const & other);
+		~{{ className }}(void);
+
+		{{ className }} &operator=({{ className }} const & rhs);
+
+	private:
+
 };
 
 #endif

@@ -1,9 +1,19 @@
 #include "{{ className }}.hpp"
 
-{{ className }}::{{ className }}()
+{{ className }}::{{ className }}(void)
 {
 }
 
-{{ className }}::~{{ className }}()
+{{ className }}::{{ className }}({{ className }} const & other)
 {
+	*this = other;
+}
+
+{{ className }}::~{{ className }}(void)
+{
+}
+
+{{ className }} &{{ className }}::operator=({{ className }} const & rhs)
+{
+	return *this;
 }
