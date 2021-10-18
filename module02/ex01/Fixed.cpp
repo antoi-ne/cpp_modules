@@ -1,7 +1,5 @@
 #include "Fixed.hpp"
 
-const int Fixed::_fraction_bits = 8;
-
 Fixed::Fixed(void)
 {
 	std::cout << "default constructor called" << std::endl;
@@ -38,4 +36,9 @@ Fixed & Fixed::operator=(Fixed const & rhs)
 		this->_number = rhs.getRawBits();
 
 	return *this;
+}
+
+std::ostream & operator<<(std::ostream & o, Fixed const & i)
+{
+	o << i.getRawBits();
 }

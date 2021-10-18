@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cmath>
 
 class Fixed
 {
@@ -11,18 +12,25 @@ class Fixed
 	public:
 
 		Fixed(void);
+		Fixed(int const i);
+		Fixed(float const f);
 		Fixed(Fixed const & other);
 		~Fixed(void);
 
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
+		float toFloat(void) const;
+		int toInt(void) const;
 
 		Fixed & operator=(Fixed const & rhs);
 
 	private:
 
-		int _number;
-		static const int _fraction_bits;
+		int _raw;
+		int _frac_bits;
+
 };
+
+std::ostream & operator<<(std::ostream & o, Fixed const & i);
 
 #endif
