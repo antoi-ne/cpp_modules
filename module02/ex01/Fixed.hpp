@@ -27,7 +27,7 @@ class Fixed
 	private:
 
 		int _raw;
-		int _frac_bits;
+		static int const _frac_bits;
 
 };
 
