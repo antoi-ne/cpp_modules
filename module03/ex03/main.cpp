@@ -1,6 +1,7 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main(void)
 {
@@ -47,6 +48,20 @@ int main(void)
 		jeff.takeDamage(9);
 		jeff.beRepaired(50);
 		jeff.highFivesGuys();
+	}
+
+	std::cout << " == Testing DiamondTrap ==" << std::endl;
+
+	{
+		DiamondTrap tony("Tony");
+
+		tony.attack("Mike");
+		tony.takeDamage(4);
+		tony.takeDamage(9);
+		tony.beRepaired(50);
+		tony.highFivesGuys();
+		tony.guardGate();
+		
 	}
 	return 0;
 }
