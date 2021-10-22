@@ -16,19 +16,9 @@ class DiamondTrap: public ScavTrap, public FragTrap
 		DiamondTrap(DiamondTrap const & other);
 		~DiamondTrap(void);
 
-		using ScavTrap::attack;
-		using ScavTrap::takeDamage;
-		using ScavTrap::beRepaired;
-		using ScavTrap::guardGate;
-		using FragTrap::highFivesGuys;
-
 	private:
 
 		std::string _name;
-
-		using FragTrap::_hitpoints;
-		using ScavTrap::_energy_points;
-		using FragTrap::_attack_damage;
 
 };
 
