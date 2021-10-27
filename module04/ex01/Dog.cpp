@@ -2,16 +2,19 @@
 
 Dog::Dog(void): Animal("Dog")
 {
+	std::cout << "Default constructor called for Dog" << std::endl;
 	this->_brain = new Brain();
 }
 
 Dog::Dog(Dog const & other)
 {
+	std::cout << "Copy constructor called for Dog" << std::endl;
 	*this = other;
 }
 
 Dog::~Dog(void)
 {
+	std::cout << "Destructor called for Dog" << std::endl;
 	delete this->_brain;
 }
 

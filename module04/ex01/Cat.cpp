@@ -2,16 +2,19 @@
 
 Cat::Cat(void): Animal("Cat")
 {
+	std::cout << "Default constructor called for Cat" << std::endl;
 	this->_brain = new Brain();
 }
 
 Cat::Cat(Cat const & other)
 {
+	std::cout << "Copy constructor called for Cat" << std::endl;
 	*this = other;
 }
 
 Cat::~Cat(void)
 {
+	std::cout << "Destructor called for Cat" << std::endl;
 	delete this->_brain;
 }
 
