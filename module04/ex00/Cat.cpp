@@ -1,15 +1,20 @@
 #include "Cat.hpp"
 
 Cat::Cat(void): Animal("Cat")
-{}
+{
+	std::cout << "Default constructor called for Cat" << std::endl;
+}
 
 Cat::Cat(Cat const & other)
 {
+	std::cout << "Copy constructor called for Cat" << std::endl;
 	*this = other;
 }
 
 Cat::~Cat(void)
-{}
+{
+	std::cout << "Destructor called for Cat" << std::endl;
+}
 
 void Cat::makeSound(void) const
 {

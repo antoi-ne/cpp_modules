@@ -11,7 +11,9 @@ Cat::Cat(Cat const & other)
 }
 
 Cat::~Cat(void)
-{}
+{
+	delete this->_brain;
+}
 
 void Cat::makeSound(void) const
 {
@@ -23,6 +25,7 @@ Cat &Cat::operator=(Cat const & rhs)
 	if (this != &rhs)
 	{
 		this->_type = rhs._type;
+		this->_brain = new Brain(*rhs._brain);
 	}
 	return *this;
 }
