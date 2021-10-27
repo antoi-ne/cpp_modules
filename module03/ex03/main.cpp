@@ -61,6 +61,12 @@ int main(void)
 		tony.beRepaired(50);
 		tony.highFivesGuys();
 		tony.guardGate();
+		tony.WhoAmI();
+
+		DiamondTrap tony2(tony);
+
+		tony2.WhoAmI();
+		tony2.takeDamage(1);
 		
 	}
 	return 0;
