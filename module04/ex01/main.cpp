@@ -3,22 +3,29 @@
 
 int main(void)
 {
-	std::cout << "== Array creation ==" << std::endl;
+	std::cout << "== Testing array creation ==" << std::endl;
 	{
 		size_t const size = 100;
 
-		Animal *a = new Animal[size];
+		Animal *a[size];
 
 		size_t i = 0;
 		while (i < size / 2)
-			a[i++] = Dog();
+			a[i++] = new Dog();
 		while (i < size)
-			a[i++] = Cat();
+			a[i++] = new Cat();
 
-		size_t i = 0;
-		while (i < size / 2)
-			a[i++] = Dog();
+		i = 0;
 		while (i < size)
-			a[i++] = Cat();
+			delete a[i++];
+	}
+	std::cout << "== Testing copy constructor ==" << std::endl;
+	{
+		Dog dog;
+		
+		Dog dog2(dog);
+
+		std::cout << "first dog address: " << &dog.getBrain() << std::endl;
+		std::cout << "copy dog address : " << &dog2.getBrain() << std::endl;
 	}
 }

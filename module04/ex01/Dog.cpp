@@ -32,3 +32,8 @@ Dog &Dog::operator=(Dog const & rhs)
 	}
 	return *this;
 }
+
+Brain & Dog::getBrain(void) const
+{
+	return *this->_brain;
+}
