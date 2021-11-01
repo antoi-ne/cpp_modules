@@ -50,7 +50,7 @@ void Character::equip(AMateria* m)
 {
 	size_t i = 0;
 
-	while (i < 4 && this->_inventory[i] == NULL)
+	while (i < 4 && this->_inventory[i] != NULL)
 		i++;
 	if (i == 4)
 		return;
