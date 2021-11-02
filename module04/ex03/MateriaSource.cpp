@@ -28,7 +28,7 @@ void MateriaSource::learnMateria(AMateria * m)
 		i++;
 	if (i == 4)
 		return;
-	this->_knowledge[i] = m->clone();
+	this->_knowledge[i] = m;
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
