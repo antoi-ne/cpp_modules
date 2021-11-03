@@ -50,4 +50,23 @@ int main()
 		delete src1;
 		delete src2;
 	}
+	std::cout << "=== unequip tests ===" << std::endl;
+	{
+		ICharacter *c = new Character("c1");
+		IMateriaSource *src = new MateriaSource();
+
+		src->learnMateria(new Ice());
+
+		AMateria *m = src->createMateria("ice");
+
+		c->equip(m);
+
+		c->use(0, *c);
+
+		c->unequip(0);
+
+		delete c;
+		delete m;
+		delete src;
+	}
 }
