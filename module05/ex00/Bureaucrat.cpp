@@ -10,14 +10,17 @@ const char * Bureaucrat::GradeTooLowException::what() const throw()
 	return "Grade too low, cannot be asigned to Bureacrat (minimum is 150).";
 }
 
-Bureaucrat::Bureaucrat(void): _name(""), _note(150)
-{
+Bureaucrat::Bureaucrat(void): _name(""), _grade(150)
+{}
 
-}
-
-Bureaucrat::Bureaucrat(std::string name, int note): _name(name)
+Bureaucrat::Bureaucrat(std::string name, int grade) throw(Bureaucrat::GradeTooHighException, Bureaucrat::GradeTooLowException): _name(name)
 {
-	this->setNote(note);
+	if (grade > 150)
+		throw GradeTooLowException();
+	else if (grade < 1)
+		throw GradeTooHighException();
+	else
+		this->_grade = grade; 
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat const & other)
@@ -26,49 +29,38 @@ Bureaucrat::Bureaucrat(Bureaucrat const & other)
 }
 
 Bureaucrat::~Bureaucrat(void)
-{
-}
+{}
 
 Bureaucrat &Bureaucrat::operator=(Bureaucrat const & rhs)
 {
 	if (this == &rhs)
 		return *this;
-	this->_note = rhs._note;
+	this->_grade = rhs._grade;
 	return *this;
 }
 
 std::string Bureaucrat::getName(void) const
 {
-
+	return this->_name;
 }
 
-void Bureaucrat::setString(std::string name)
+int Bureaucrat::getGrade(void) const
 {
-
+	return this->_grade;
 }
 
-int Bureaucrat::getNote(void) const
+void Bureaucrat::incrementGrade(void) throw(GradeTooHighException)
 {
-
-}
-
-void Bureaucrat::setNote(int note) throw(GradeTooHighException, GradeTooHighException)
-{
-	if (note > 150)
-		throw GradeTooLowException();
-	else if (note < 1)
+	if (this->_grade < 2)
 		throw GradeTooHighException();
 	else
-		this->_note = note;
+		this->_grade--;
 }
 
-void Bureaucrat::incrementNote(void) throw(GradeTooHighException, GradeTooHighException)
+void Bureaucrat::decrementGrade(void) throw(GradeTooLowException)
 {
-
+	if (this->_grade > 149)
+		throw GradeTooLowException();
+	else
+		this->_grade++;
 }
-
-void Bureaucrat::decrementNote(void) throw(GradeTooHighException, GradeTooHighException)
-{
-
-}
-

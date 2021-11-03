@@ -12,36 +12,34 @@ class Bureaucrat
 
 		class GradeTooHighException: public std::exception
 		{
-			virtual const char* what() const throw();
+			public:
+				virtual const char* what() const throw();
 		};
 
 		class GradeTooLowException: public std::exception
 		{
-			virtual const char* what() const throw();
+			public:
+				virtual const char* what() const throw();
 		};
 
 		Bureaucrat(void);
-		Bureaucrat(std::string name, int note) throw(GradeTooHighException, GradeTooHighException);
+		Bureaucrat(std::string name, int grade) throw(Bureaucrat::GradeTooHighException, Bureaucrat::GradeTooLowException);
 		Bureaucrat(Bureaucrat const & other);
 		virtual ~Bureaucrat(void);
 
 		Bureaucrat &operator=(Bureaucrat const & rhs);
 
 		std::string getName(void) const;
-		void setString(std::string name);
 
-		int getNote(void) const;
-		void setNote(int note) throw(GradeTooHighException, GradeTooHighException);
+		int getGrade(void) const;
 
-		void incrementNote(void) throw(GradeTooHighException, GradeTooHighException);
-		void decrementNote(void) throw(GradeTooHighException, GradeTooHighException);
-
-		
+		void incrementGrade(void) throw(GradeTooHighException);
+		void decrementGrade(void) throw(GradeTooLowException);
 
 	private:
 
 		std::string const _name;
-		int _note;
+		int _grade;
 
 };
 
