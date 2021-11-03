@@ -7,7 +7,7 @@ int main(void)
 		try
 		{
 			Bureaucrat b("Dave", 151);
-			std::cout << "Bureaucrat " << b.getName() << " with grade " << b.getGrade() << std::endl;
+			std::cout << b << std::endl;
 		}
 		catch (const std::exception & e)
 		{
@@ -19,7 +19,7 @@ int main(void)
 		try
 		{
 			Bureaucrat b("Dave", 0);
-			std::cout << "Bureaucrat " << b.getName() << " with grade " << b.getGrade() << std::endl;
+			std::cout << b << std::endl;
 		}
 		catch (const std::exception & e)
 		{
@@ -31,7 +31,7 @@ int main(void)
 		try
 		{
 			Bureaucrat b("Dave", 10);
-			std::cout << "Bureaucrat " << b.getName() << " with grade " << b.getGrade() << std::endl;
+			std::cout << b << std::endl;
 		}
 		catch (const std::exception & e)
 		{
@@ -44,7 +44,7 @@ int main(void)
 		{
 			Bureaucrat b("Dave", 2);
 			b.incrementGrade();
-			std::cout << "Bureaucrat " << b.getName() << " with grade " << b.getGrade() << std::endl;
+			std::cout << b << std::endl;
 		}
 		catch (const std::exception & e)
 		{
@@ -58,7 +58,7 @@ int main(void)
 			Bureaucrat b("Dave", 2);
 			b.incrementGrade();
 			b.incrementGrade();
-			std::cout << "Bureaucrat " << b.getName() << " with grade " << b.getGrade() << std::endl;
+			std::cout << b << std::endl;
 		}
 		catch (const std::exception & e)
 		{
@@ -71,7 +71,7 @@ int main(void)
 		{
 			Bureaucrat b("Dave", 149);
 			b.decrementGrade();
-			std::cout << "Bureaucrat " << b.getName() << " with grade " << b.getGrade() << std::endl;
+			std::cout << b << std::endl;
 		}
 		catch (const std::exception & e)
 		{
@@ -85,7 +85,7 @@ int main(void)
 			Bureaucrat b("Dave", 149);
 			b.decrementGrade();
 			b.decrementGrade();
-			std::cout << "Bureaucrat " << b.getName() << " with grade " << b.getGrade() << std::endl;
+			std::cout << b << std::endl;
 		}
 		catch (const std::exception & e)
 		{

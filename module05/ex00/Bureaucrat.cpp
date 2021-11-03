@@ -64,3 +64,10 @@ void Bureaucrat::decrementGrade(void) throw(GradeTooLowException)
 	else
 		this->_grade++;
 }
+
+std::ostream & operator<<(std::ostream & o, Bureaucrat const & i)
+{
+	o << i.getName() << ", bureaucrat grade " << i.getGrade();
+
+	return o;
+}
