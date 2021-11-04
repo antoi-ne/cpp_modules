@@ -79,6 +79,23 @@ void Bureaucrat::signForm(Form & form) const
 	
 }
 
+void Bureaucrat::executeForm(Form const & form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << *this << " executs " << form << std::endl;
+	}
+	catch(const Form::GradeTooLowException& e)
+	{
+		std::cout << *this << " cannot execute because " << e.what() << std::endl;
+	}
+	catch(const Form::NotSignedException& e)
+	{
+		std::cout << *this << " cannot execute because the form is not signed" << std::endl;
+	}
+}
+
 std::ostream & operator<<(std::ostream & o, Bureaucrat const & i)
 {
 	o << i.getName() << ", bureaucrat grade " << i.getGrade();

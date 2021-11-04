@@ -25,3 +25,11 @@ void ShrubberyCreationForm::applyForm(void) const
 	of << tree;
 	of.close();
 }
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const & rhs)
+{
+	if (this == &rhs)
+		return *this;
+	this->_target = rhs._target;
+	return *this;
+}

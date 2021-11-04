@@ -74,7 +74,7 @@ void Form::beSigned(Bureaucrat const & b) throw(GradeTooLowException)
 
 bool Form::hasPermissionToExecute(Bureaucrat const & executor) const
 {
-	if (this->_sign_grade < executor.getGrade())
+	if (this->_exec_grade < executor.getGrade())
 		return false;
 	else
 		return true;
@@ -86,7 +86,7 @@ void Form::execute(Bureaucrat const & executor) const throw(NotSignedException, 
 		throw NotSignedException();
 	if (this->hasPermissionToExecute(executor) == false)
 		throw GradeTooLowException();
-	this->applyForm(executor);
+	this->applyForm();
 }
 
 std::ostream & operator<<(std::ostream & o, Form const & i)
