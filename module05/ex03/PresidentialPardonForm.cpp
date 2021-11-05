@@ -11,6 +11,9 @@ PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const & ot
 	*this = other;
 }
 
+PresidentialPardonForm::~PresidentialPardonForm()
+{}
+
 PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const & rhs)
 {
 	if (this == &rhs)

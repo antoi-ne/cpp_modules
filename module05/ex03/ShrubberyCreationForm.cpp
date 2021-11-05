@@ -6,6 +6,9 @@ ShrubberyCreationForm::ShrubberyCreationForm(void): Form("shrubbery creation", 1
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target): Form("shrubbery creation", 145, 137), _target(target)
 {}
 
+ShrubberyCreationForm::~ShrubberyCreationForm()
+{}
+
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const & other)
 {
 	*this = other;

@@ -16,6 +16,9 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & other)
 	*this = other;
 }
 
+RobotomyRequestForm::~RobotomyRequestForm()
+{}
+
 void RobotomyRequestForm::applyForm(void) const
 {
 	std::cout << "* drill noises *" << std::endl;

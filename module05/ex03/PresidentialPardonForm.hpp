@@ -13,6 +13,7 @@ class PresidentialPardonForm: public Form
 		PresidentialPardonForm(void);
 		PresidentialPardonForm(std::string target);
 		PresidentialPardonForm(PresidentialPardonForm const & other);
+		virtual ~PresidentialPardonForm();
 
 		PresidentialPardonForm &operator=(PresidentialPardonForm const & rhs);
 
