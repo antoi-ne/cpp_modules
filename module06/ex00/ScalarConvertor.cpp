@@ -20,7 +20,9 @@ ScalarConvertor::ScalarConvertor(std::string input)
 	else if (ScalarConvertor::isIntFmt(input))
 	{
 		sts << input;
-		sts >> this->_value;
+		int val = 0;
+		sts >> val;
+		this->_value = val;
 	}
 	else if (ScalarConvertor::isFloatFmt(input))
 	{
@@ -34,7 +36,9 @@ ScalarConvertor::ScalarConvertor(std::string input)
 		{
 			input.pop_back();
 			sts << input;
-			sts >> this->_value;
+			float val = 0;
+			sts >> val;
+			this->_value = val;
 		}
 	}
 	else if (ScalarConvertor::isDoubleFmt(input))
@@ -48,7 +52,9 @@ ScalarConvertor::ScalarConvertor(std::string input)
 		else
 		{
 			sts << input;
-			sts >> this->_value;
+			double val = 0;
+			sts >> val;
+			this->_value = val;
 		}
 	}
 	else

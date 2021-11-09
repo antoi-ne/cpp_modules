@@ -34,15 +34,15 @@ int main(int argc, char **argv)
 
 		if (floor(base) == base)
 		{
-			std::cout << "float: " << std::fixed << std::setprecision(1) << sc.toFloat() << "f" << std::endl;
+			std::cout << "float: " << std::setprecision(1) << std::fixed << sc.toFloat() << "f" << std::endl;
 
-			std::cout << "double: " << std::fixed << std::setprecision(1) << sc.toDouble() << std::endl;
+			std::cout << "double: " << std::setprecision(1) << std::fixed << sc.toDouble() << std::endl;
 		}
 		else
 		{
-			std::cout << "float: " << sc.toFloat() << "f" << std::endl;
+			std::cout << "float: " << std::fixed << sc.toFloat() << "f" << std::endl;
 
-			std::cout << "double: " << sc.toDouble() << std::endl;
+			std::cout << "double: " << std::fixed << sc.toDouble() << std::endl;
 		}
 		
 
