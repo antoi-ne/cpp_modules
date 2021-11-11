@@ -11,6 +11,15 @@ class Array
 
 	public:
 
+		class outOfBoundException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return "Index out of bounds";
+				}
+		};
+
 		Array(void)
 		{
 			this->_array = new T[0];
@@ -47,8 +56,8 @@ class Array
 
 		T &operator[](int i)
 		{
-			if (i >= this->_len)
-				throw std::exception();
+			if (i >= (int)this->_len)
+				throw outOfBoundException();
 			else
 				return this->_array[i];
 		}
@@ -58,11 +67,27 @@ class Array
 			return this->_len;
 		}
 
+		void print(void) const
+		{
+			for(size_t i = 0; i < this->_len; i++)
+				std::cout << "> " << this->_array[i] << std::endl;
+		}
+
 	private:
 
 		T * _array;
 		size_t _len;
 
 };
+
+template<typename T>
+std::ostream &operator<<(std::ostream &os, Array<T> const &other)
+{
+	std::cout << "[";
+	for (size_t i = 0; i < other.size(); i++)
+		os << const_cast<Array<T> &>(other)[i] << ", ";
+	std::cout << "]" << std::endl;
+	return (os);
+}
 
 #endif
