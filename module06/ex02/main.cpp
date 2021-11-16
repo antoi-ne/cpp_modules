@@ -42,27 +42,6 @@ void identify(Base * p)
 		std::cout << "Unknown type" << std::endl;
 }
 
-void identify(Base & p)
-{
-	if (dynamic_cast<A *>(p))
-	{
-		std::cout << "A" << std::endl;
-		return;
-	}
-	else if (dynamic_cast<B *>(p))
-	{
-		std::cout << "B" << std::endl;
-		return;
-	}
-	else if (dynamic_cast<C *>(p))
-	{
-		std::cout << "C" << std::endl;
-		return;
-	}
-	else
-		std::cout << "Unknown type" << std::endl;
-}
-
 int main(void)
 {
 	std::srand(std::time(NULL));
@@ -70,6 +49,56 @@ int main(void)
 	Base * r = generate();
 
 	identify(r);
+
+	delete r;
+
+	r = generate();
+
+	identify(r);
+
+	delete r;
+
+	r = generate();
+
+	identify(r);
+
+	delete r;
+
+	r = generate();
+
+	identify(r);
+
+	delete r;
+
+	r = generate();
+
+	identify(r);
+
+	delete r;
+
+	r = generate();
+
+	identify(r);
+
+	delete r;
+
+	r = generate();
+
+	identify(r);
+
+	delete r;
+
+	r = generate();
+
+	identify(r);
+
+	delete r;
+
+	r = generate();
+
+	identify(r);
+
+	delete r;
 
 	return 0;
 }
