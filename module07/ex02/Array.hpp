@@ -67,12 +67,6 @@ class Array
 			return this->_len;
 		}
 
-		void print(void) const
-		{
-			for(size_t i = 0; i < this->_len; i++)
-				std::cout << "> " << this->_array[i] << std::endl;
-		}
-
 	private:
 
 		T * _array;
@@ -86,7 +80,7 @@ std::ostream &operator<<(std::ostream &os, Array<T> const &other)
 	std::cout << "[";
 	for (size_t i = 0; i < other.size(); i++)
 		os << const_cast<Array<T> &>(other)[i] << ", ";
-	std::cout << "]" << std::endl;
+	std::cout << "]";
 	return (os);
 }
 
