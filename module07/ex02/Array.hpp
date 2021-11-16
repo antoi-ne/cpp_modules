@@ -34,6 +34,7 @@ class Array
 
 		Array(Array const & other)
 		{
+			this->_array = NULL;
 			*this = other;
 		}
 
@@ -46,9 +47,10 @@ class Array
 		{
 			if (this == &rhs)
 				return *this;
-			delete [] this->_array;
+			if (this->_array)
+				delete [] this->_array;
 			this->_array = new T[rhs._len];
-			this->_len = rhs.len;
+			this->_len = rhs._len;
 			for (size_t i = 0; i < this->_len; i++)
 				this->_array[i] = rhs._array[i];
 			return *this;
