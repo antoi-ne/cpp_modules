@@ -4,6 +4,8 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <vector>
+#include <algorithm>
 
 class Span
 {
@@ -31,14 +33,14 @@ class Span
 
 		void addNumber(int n);
 
-		int shortestSpan(void) const;
-		int longestSpan(void) const;
+		int shortestSpan(void);
+		int longestSpan(void);
 
 	private:
 
+		std::vector<int> _vect;
 		unsigned int _size;
-		unsigned int _len;
-		int *_array;
+		
 
 };
 

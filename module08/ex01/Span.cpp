@@ -1,59 +1,81 @@
 #include "Span.hpp"
 
-const char * Span::NoSpaceLeftException::what(void) const
+const char * Span::NoSpaceLeftException::what(void) const throw()
 {
 	return "No space left in span.";
 }
 
-Span::Span(void): _size(0), _len(0)
+const char * Span::NoSpanException::what(void) const throw()
 {
-	this->_array = new int[0]();
+	return "Not enough spans (2 min.).";
 }
 
-Span::Span(unsigned int size): _size(size), _len(0)
-{
-	this->_array = new int[size]();
-}
+Span::Span(void): _size(0)
+{}
+
+Span::Span(unsigned int size): _size(size)
+{}
 
 Span::Span(Span const & other)
 {
-	this->_array = NULL;
 	*this = other;
 }
 
 Span::~Span(void)
-{
-	delete [] this->_array;
-}
+{}
 
 Span &Span::operator=(Span const & rhs)
 {
 	if (this == &rhs)
 		return *this;
-	if (this->_array)
-		delete [] this->_array;
 	this->_size = rhs._size;
-	this->_len = rhs._len;
-	this->_array = new int[rhs._size]();
-	for (unsigned int i = 0; i < rhs._size; i++)
-		this->_array[i] = rhs._array[i];
+	this->_vect = rhs._vect;
 	return *this;
 }
 
 void Span::addNumber(int n)
 {
-	if (this->_len >= this->_size)
+	if (this->_vect.size() >= this->_size)
 		throw NoSpaceLeftException();
-	this->_array[this->_len] = n;
-	this->_len++;
+	this->_vect.push_back(n);
 }
 
-int Span::shortestSpan(void) const
+int Span::shortestSpan(void)
 {
-	
+	if (this->_vect.size() < 2)
+		throw NoSpanException();
+
+	std::vector<int>::iterator it1;
+	std::vector<int>::iterator it2;
+
+	int span = INT_MAX;
+
+	for(it1 = this->_vect.begin(); it1 != this->_vect.end(); it1++)
+	{
+		int ref = *it1;
+
+		for(it2 = this->_vect.begin(); it2 != this->_vect.end(); it2++)
+		{
+			if (std::distance(this->_vect.begin(), it1) == std::distance(this->_vect.begin(), it2))
+				continue;
+
+			long long diff = ref;
+			diff = std::abs(diff - *it2);
+			if (diff < span)
+				span = diff;
+		}
+	}
+
+	return span;
 }
 
-int Span::longestSpan(void) const
+int Span::longestSpan(void)
 {
+	if (this->_vect.size() < 2)
+		throw NoSpanException();
 
+	int max = *std::max_element(this->_vect.begin(), this->_vect.end());
+	int min = *std::min_element(this->_vect.begin(), this->_vect.end());
+
+	return max - min;
 }
