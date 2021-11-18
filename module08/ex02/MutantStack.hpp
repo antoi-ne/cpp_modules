@@ -14,9 +14,9 @@ class MutantStack: public std::stack<T>
 
 		MutantStack<T>(void): std::stack<T>() {}
 
-		~MutantStack<T>(void) {}
-
 		MutantStack<T>(const MutantStack& ref): std::stack<T>(ref) {}
+
+		~MutantStack<T>(void) {}
 
 		MutantStack& operator = (const MutantStack& ref)
 		{

@@ -19,8 +19,8 @@ int main(void)
 	}
 	std::cout << "=== inserting range of iterators ===" << std::endl;
 	{
-		Span sp(50000);
-		std::vector<int> vect(50000);
+		Span sp(10000);
+		std::vector<int> vect(10000);
 
 		for (std::vector<int>::iterator it = vect.begin(); it != vect.end(); it++)
 			*it = std::rand();
