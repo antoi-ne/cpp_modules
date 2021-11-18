@@ -1,30 +1,33 @@
 #include "Span.hpp"
 
-const char * Span::NoSpaceLeftException::what(void) const throw()
+const char *Span::NoSpaceLeftException::what(void) const throw()
 {
 	return "No space left in span.";
 }
 
-const char * Span::NoSpanException::what(void) const throw()
+const char *Span::NoSpanException::what(void) const throw()
 {
 	return "Not enough spans (2 min.).";
 }
 
-Span::Span(void): _size(0)
-{}
+Span::Span(void) : _size(0)
+{
+}
 
-Span::Span(unsigned int size): _size(size)
-{}
+Span::Span(unsigned int size) : _size(size)
+{
+}
 
-Span::Span(Span const & other)
+Span::Span(Span const &other)
 {
 	*this = other;
 }
 
 Span::~Span(void)
-{}
+{
+}
 
-Span &Span::operator=(Span const & rhs)
+Span &Span::operator=(Span const &rhs)
 {
 	if (this == &rhs)
 		return *this;
@@ -40,36 +43,32 @@ void Span::addNumber(int n)
 	this->_vect.push_back(n);
 }
 
-int Span::shortestSpan(void)
+void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	this->_vect.insert(this->_vect.end(), begin, end);
+}
+
+int Span::shortestSpan(void) const
 {
 	if (this->_vect.size() < 2)
 		throw NoSpanException();
 
-	std::vector<int>::iterator it1;
-	std::vector<int>::iterator it2;
+	std::vector<int> copy(this->_vect);
+	std::sort(copy.begin(), copy.end());
 
 	int span = INT_MAX;
 
-	for(it1 = this->_vect.begin(); it1 != this->_vect.end(); it1++)
+	for (std::vector<int>::iterator it = copy.begin(); it != copy.end() && it + 1 != copy.end(); it++)
 	{
-		int ref = *it1;
-
-		for(it2 = this->_vect.begin(); it2 != this->_vect.end(); it2++)
-		{
-			if (std::distance(this->_vect.begin(), it1) == std::distance(this->_vect.begin(), it2))
-				continue;
-
-			long long diff = ref;
-			diff = std::abs(diff - *it2);
-			if (diff < span)
-				span = diff;
-		}
+		int x = *(it + 1) - *it;
+		if (x < span)
+			span = x;
 	}
 
 	return span;
 }
 
-int Span::longestSpan(void)
+int Span::longestSpan(void) const
 {
 	if (this->_vect.size() < 2)
 		throw NoSpanException();
