@@ -22,18 +22,19 @@ class Array
 
 		Array(void)
 		{
-			this->_array = new T[0];
+			this->_array = new T[0]();
 			this->_len = 0;
 		}
 
 		Array(unsigned int n)
 		{
-			this->_array = new T[n];
+			this->_array = new T[n]();
 			this->_len = n;
 		}
 
 		Array(Array const & other)
 		{
+			this->_array = NULL;
 			*this = other;
 		}
 
@@ -46,9 +47,10 @@ class Array
 		{
 			if (this == &rhs)
 				return *this;
-			delete [] this->_array;
-			this->_array = new T[rhs._len];
-			this->_len = rhs.len;
+			if (this->_array)
+				delete [] this->_array;
+			this->_array = new T[rhs._len]();
+			this->_len = rhs._len;
 			for (size_t i = 0; i < this->_len; i++)
 				this->_array[i] = rhs._array[i];
 			return *this;
@@ -56,7 +58,7 @@ class Array
 
 		T &operator[](int i)
 		{
-			if (i >= (int)this->_len)
+			if (i >= (int)this->_len || i < 0)
 				throw outOfBoundException();
 			else
 				return this->_array[i];
@@ -65,12 +67,6 @@ class Array
 		size_t size(void) const
 		{
 			return this->_len;
-		}
-
-		void print(void) const
-		{
-			for(size_t i = 0; i < this->_len; i++)
-				std::cout << "> " << this->_array[i] << std::endl;
 		}
 
 	private:
@@ -86,7 +82,7 @@ std::ostream &operator<<(std::ostream &os, Array<T> const &other)
 	std::cout << "[";
 	for (size_t i = 0; i < other.size(); i++)
 		os << const_cast<Array<T> &>(other)[i] << ", ";
-	std::cout << "]" << std::endl;
+	std::cout << "]";
 	return (os);
 }
 
